@@ -24,9 +24,15 @@ Fonts:
   The fonts are Proxima Nova and Avenir, with Arial as a backup.
 */
 
-/* Set up the main font and background color for the whole page */
+/* Import Google Fonts for Montserrat (headings) and Nunito Sans (body) */
+/* Add this line to your HTML <head> section:
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&display=swap" rel="stylesheet">
+*/
+
+/* Set Nunito Sans as the main font for body text */
 body {
-  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif; /* Use brand fonts */
+  font-family: 'Nunito Sans', Arial, sans-serif; /* Nunito Sans for body text */
   background-color: #f9f9f9; /* Very light background */
   margin: 0;
   padding: 0;
@@ -70,6 +76,17 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
+}
+
+/* Make the hero section headline use Montserrat font */
+.hero h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Use Montserrat for all headings */
+h1, h2, h3, h4, h5, h6,
+.hero h1 {
+  font-family: 'Montserrat', Arial, sans-serif; /* Montserrat for headings */
 }
 
 /* Story section styles */
