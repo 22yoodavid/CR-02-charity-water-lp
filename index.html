@@ -1,47 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Charity Nonprofit Landing Page</title>
+  <style>
+    /* Basic page styles */
+    body {
+      font-family: Arial, sans-serif; /* Simple, easy-to-read font */
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4; /* Light background color */
+    }
+
+    /* Slim white section at the top for the logo */
+    .top-logo-bar {
+      background: #fff;           /* White background */
+      padding: 10px 0;            /* Slim padding */
+      text-align: center;         /* Center the image */
+      border-bottom: 1px solid #eee; /* Light bottom border */
+    }
+    .top-logo-bar img {
+      max-width: 220px;           /* Limit logo width for beginners */
+      height: auto;               /* Keep image aspect ratio */
+      display: inline-block;      /* Center the image */
+    }
+
+    /* Hero section styles */
+    .hero {
+      background-color: #0099cc; /* Bright blue for attention */
+      color: white;
+      text-align: center;
+      padding: 60px 20px; /* Space above and below */
+      background-image: url('https://cdn2.dropmarkusercontent.com/52043/53daed2f001dfe86e866105be426ce508e47d57d379005863be54ab73081becc/preview/5017_Ethiopia_2019_CG-.jpg?Expires=1751763740&Signature=Tcch~gK8iPr4U62EkWVERw5nSQyQlulA-s8Y5wfm511dvsmIC7LLBr9Qb9kRX7LyaXavMzINPND7uqsmCHo9zqG5ZNB3ThtKv10ZiULdDkb7KtF1e-ot9OgePlDyBt9elTzt8Y0FuKDIpdeXe~8vn8fXcXnMlrxPNXmJy3eVW8T2pUM6sIL9uQxjxrdqryancbYSCIRvK95J1hYA1sZZ9VM7lNvDGgj46~MQa4zWYu-8cgbbUjeid5e4q0CE6TUsRl2LRqSx6-s2aqsaLRYpcR0yL97roWrVcV~Mi4zwnLhkgl~nBsucpKBi-mEspFqTub8-ETCXjvVvqCluIP1Ggw__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ'); /* Full-width background image */
+      background-size: cover; /* Cover the entire section */
+      background-position: center; /* Center the image */
+      display: flex;              /* Use flexbox for centering */
+      align-items: center;        /* Vertically center */
+      justify-content: center;    /* Horizontally center */
+      min-height: 550px;          /* Make the hero section smaller */
+      padding: 30px 10px;         /* Add padding around the hero section */
+    }
+
+    .hero-content {
+      max-width: 800px; /* Limit width of content */
+      margin: 0 auto; /* Center the content */
+      padding: 20px 20px;    /* Less padding for a smaller box */
+      display: inline-block; /* Shrink to fit content */
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent for readability */
+      border-radius: 20px;   /* Rounded corners */
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Soft shadow for depth */
+      text-align: center;    /* Center text inside the box */
+      max-width: 350px;      /* Make the hero content box smaller */
+    }
+
+    /* Story section styles */
+    .story {
+      background-color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .story img {
+      width: 200px; /* Set image width */
+      border-radius: 10px; /* Rounded corners */
+      margin-top: 20px;
+    }
+
+    /* Call-to-action section styles */
+    .cta {
+      background-color: #ffcc00; /* Bright yellow for CTA */
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .cta button {
+      background-color: #0099cc; /* Blue button */
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cta button:hover {
+      background-color: #0077aa; /* Slightly darker on hover */
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <!-- Slim white section with centered logo at the very top -->
+  <div class="top-logo-bar">
+    <!-- Charity: water logo image -->
+    <img src="https://mms.businesswire.com/media/20240319745986/en/2072736/4/cw_long_color.jpg" alt="Charity: water logo">
+  </div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- The hero section uses a background image to grab attention -->
+    <div class="hero-content">
+      <!-- Main headline, centered -->
+      <h1>Clean Water for Everyone</h1>
+      <!-- Subheadline, centered below the headline -->
+      <p>Together, we can bring safe drinking water to communities in need.</p>
+    </div>
+  </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <!-- Story Section -->
+  <section class="story">
+    <!-- Story headline -->
+    <h2>Meet Amina</h2>
+    <!-- Story text -->
+    <p>Amina used to walk miles every day for water. Now, thanks to your support, her village has a clean water well.</p>
+    <!-- Story image (placeholder) -->
+    <img src="https://via.placeholder.com/200x150" alt="Amina's story">
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- Call-to-Action Section -->
+  <section class="cta">
+    <!-- CTA headline -->
+    <h2>Make a Difference Today</h2>
+    <!-- CTA button -->
+    <button>Donate Now</button>
+  </section>
 </body>
 </html>
