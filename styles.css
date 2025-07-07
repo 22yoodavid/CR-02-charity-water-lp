@@ -94,14 +94,38 @@ h1, h2, h3, h4, h5, h6,
   background-color: #fff; /* White background */
   color: #222;
   text-align: center;
-  padding: 30px 10px;
+  /* Increase left and right margins by using larger side padding */
+  padding: 20px 100px; /* 100px on left and right for more white space */
+}
+
+/* Container to place image and text side by side */
+.story-row {
+  display: flex; /* Place children in a row */
+  align-items: flex-start; /* Align items at the top */
+  justify-content: center; /* Center the row in the section */
+  gap: 24px; /* Space between image and text */
+  margin-top: 10px; /* Less space above the row */
+  margin-bottom: 10px; /* Less space below the row */
 }
 
 /* Style for the story image */
-.story img {
+.story-row img {
   width: 180px;
   border-radius: 8px; /* Slightly rounded corners */
-  margin-top: 15px;
+  /* No margin-top needed here */
+}
+
+/* Style for the story text */
+.story-row p {
+  text-align: left;         /* Align text to the left for readability */
+  max-width: 500px;         /* Limit width so lines aren't too long */
+  margin: 400px;                /* Remove default margin */
+  font-size: 1.25em;        /* Make the text larger for readability */
+  padding-left: 24px;       /* More space to the left of the text (next to image) */
+  padding-right: 24px;      /* More space to the right of the text */
+  padding-top: 4px;         /* Less space above the text */
+  padding-bottom: 4px;      /* Less space below the text */
+  /* The padding helps align the text with the image border */
 }
 
 /* Call-to-action section styles */
@@ -127,4 +151,58 @@ h1, h2, h3, h4, h5, h6,
 /* Button hover effect */
 .cta button:hover {
   background-color: #e6b800; /* Slightly darker yellow */
+}
+
+/* Confetti container styles for water drops */
+#confetti-container {
+  position: relative; /* Needed for absolute positioning of drops */
+  width: 100%;
+  height: 0;
+  pointer-events: none; /* Allow clicks through confetti */
+  z-index: 10;
+}
+
+/* 
+  Media queries help make your website look good on all screen sizes.
+  The styles below adjust layout and font sizes for tablets and phones.
+*/
+@media (max-width: 900px) {
+  /* Reduce side padding on the story section for tablets */
+  .story {
+    padding: 20px 30px;
+  }
+  .story-row p {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Stack image and text vertically on small screens */
+  .story-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .story-row img {
+    width: 140px; /* Make image smaller */
+  }
+  .story-row p {
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1em; /* Slightly smaller text for mobile */
+  }
+  .story {
+    padding: 16px 6px;
+  }
+  .hero {
+    min-height: 180px;
+    padding: 30px 6px;
+  }
+  .hero-content {
+    padding: 10px 6px;
+  }
+  .cta {
+    padding: 20px 6px;
+  }
 }

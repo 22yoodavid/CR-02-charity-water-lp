@@ -85,6 +85,41 @@
     .cta button:hover {
       background-color: #0077aa; /* Slightly darker on hover */
     }
+
+    /* New styles for story row layout */
+    .story-row {
+      display: flex;            /* Use flexbox for alignment */
+      align-items: center;      /* Center items vertically */
+      justify-content: center;  /* Center items horizontally */
+      flex-direction: row;      /* Arrange children in a row */
+      margin-top: 20px;        /* Space above the story row */
+    }
+
+    .story-row img {
+      margin-right: 20px;      /* Space between image and text */
+      flex-shrink: 0;          /* Prevent image from shrinking */
+    }
+
+    .story-row p {
+      flex: 1;                 /* Allow text to grow and fill space */
+      text-align: left;        /* Align text to the left */
+    }
+
+    /* Confetti styles */
+    #confetti-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none; /* Ignore mouse events */
+    }
+
+    #confetti-container span {
+      position: absolute;
+      top: 0;
+      opacity: 1;
+      pointer-events: none; /* Ignore mouse events */
+    }
   </style>
 </head>
 <body>
@@ -113,21 +148,64 @@
   <section class="story">
     <!-- Story headline -->
     <h2>Meet Amina</h2>
-    <!-- Story text -->
-    <p>Every morning, Amina set out before dawn to fetch water—dirty, unsafe water. But with your help, everything has changed. A new well means clean water flows freely in her village. Amina has time to learn, play, and dream bigger than ever. Now, instead of spending hours on dangerous journeys, she walks just a few steps to fill her container. Her brothers and sisters no longer miss school because of waterborne illnesses. Clean water hasn’t just improved daily life—it’s opened the door to a healthier, brighter future for her entire community. Your support makes stories like Amina’s possible. Together, we can bring safe, reliable water to families still waiting.
-
-</p>
-    <!-- Story image (placeholder) -->
-    <img src=https://cdn2.dropmarkusercontent.com/52043/93befcaa508b5c7dce347406129ee25c324e03c88ba57013e3f783118d3f84b1/preview/4898_Ethiopia_2019_CG-.jpg?Expires=1751855898&Signature=E1DerjmPYSVSDp8Vlv1AUdFPMfcrhHxlfMCQTdZEiZPH-oNH3LXk~vo8HA61WFJ4mpuyaKLoJKc1D6YCsGbwtLEtdrkr06Ny818ve5HcpW0ttDFvefZG2fdtnISoGzvQirfAaRn5SCHw5zK0mInx5RFB42Q2Xpm3PfbTqKRZrTMPt1H1DMJVw~XZobx7KYaoEpODGNXZk-H7qmR2g~l4qM5AwD1FLTjLlda7qbcAoSbR2IuOGklSRJ56IGx37Kj74GGECgvaXcEZmCXY6wKe7Lh-iwyJnIf86Lx~RLFYKS3BQ6AR-Zoas3Ctj17lxHKX~ENrlqyTcgXGTeqdFnyRtw__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ alt="Amina's story">
+    <!-- Container for image and text side by side -->
+    <div class="story-row">
+      <!-- Story image on the left -->
+      <img src="https://cdn2.dropmarkusercontent.com/52043/93befcaa508b5c7dce347406129ee25c324e03c88ba57013e3f783118d3f84b1/preview/4898_Ethiopia_2019_CG-.jpg?Expires=1751855898&Signature=E1DerjmPYSVSDp8Vlv1AUdFPMfcrhHxlfMCQTdZEiZPH-oNH3LXk~vo8HA61WFJ4mpuyaKLoJKc1D6YCsGbwtLEtdrkr06Ny818ve5HcpW0ttDFvefZG2fdtnISoGzvQirfAaRn5SCHw5zK0mInx5RFB42Q2Xpm3PfbTqKRZrTMPt1H1DMJVw~XZobx7KYaoEpODGNXZk-H7qmR2g~l4qM5AwD1FLTjLlda7qbcAoSbR2IuOGklSRJ56IGx37Kj74GGECgvaXcEZmCXY6wKe7Lh-iwyJnIf86Lx~RLFYKS3BQ6AR-Zoas3Ctj17lxHKX~ENrlqyTcgXGTeqdFnyRtw__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ" alt="Amina's story">
+      <!-- Story text on the right -->
+      <p>
+        Every morning, Amina set out before dawn to fetch water—dirty, unsafe water. But with your help, everything has changed. A new well means clean water flows freely in her village. Amina has time to learn, play, and dream bigger than ever. Now, instead of spending hours on dangerous journeys, she walks just a few steps to fill her container. Her brothers and sisters no longer miss school because of waterborne illnesses. Clean water hasn’t just improved daily life—it’s opened the door to a healthier, brighter future for her entire community. Your support makes stories like Amina’s possible. Together, we can bring safe, reliable water to families still waiting.
+      </p>
+    </div>
   </section>
 
   <!-- Call-to-Action Section -->
   <section class="cta">
     <!-- CTA headline -->
-    <h2>Make a Difference Today</h2>
-    <!-- CTA button -->
-    <button>Donate Now</button>
+    <h2>Start Making a Real Difference Today</h2>
+    <!-- CTA button with water drop emoji on the right -->
+    <button id="give-water-btn">Give Water 💧</button>
+    <!-- Confetti container for water drops -->
+    <div id="confetti-container"></div>
   </section>
+  <script>
+    // This script adds a simple water drop confetti effect when the button is clicked
+
+    // Get the button and confetti container
+    const btn = document.getElementById('give-water-btn');
+    const confettiContainer = document.getElementById('confetti-container');
+
+    btn.addEventListener('click', function() {
+      // Number of water drops
+      const drops = 30;
+      for (let i = 0; i < drops; i++) {
+        // Create a span for each water drop
+        const drop = document.createElement('span');
+        drop.textContent = '💧';
+        drop.style.position = 'absolute';
+        // Random horizontal position (within the CTA section)
+        drop.style.left = (Math.random() * 90 + 5) + '%';
+        // Start above the visible area
+        drop.style.top = '-30px';
+        // Random font size for variety
+        drop.style.fontSize = (Math.random() * 18 + 18) + 'px';
+        // Animation: fall down
+        const duration = Math.random() * 1 + 1.5; // 1.5s to 2.5s
+        drop.style.transition = `top ${duration}s linear, opacity 0.5s`;
+        confettiContainer.appendChild(drop);
+
+        // Animate drop falling
+        setTimeout(() => {
+          drop.style.top = (Math.random() * 80 + 20) + '%';
+          drop.style.opacity = '0';
+        }, 10);
+
+        // Remove drop after animation
+        setTimeout(() => {
+          confettiContainer.removeChild(drop);
+        }, duration * 1000 + 500);
+      }
+    });
+  </script>
 </body>
-</html>
 </html>
